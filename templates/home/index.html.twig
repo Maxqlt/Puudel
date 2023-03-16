@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h1>Puudel Project 🐩</h1>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Author</th>
+                        <th>Author Email</th>
+                        <th>Title</th>
+                        <th>Beschreibung</th>
+                        <th>Termine</th>
+                        <th>Expiration Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for umfrage in umfragen %}
+                    <tr>
+                        <td>{{ umfrage.id }}</td>
+                        <td>{{ umfrage.name }}</td>
+                        <td>{{ umfrage.email }}</td>
+                        <td>{{ umfrage.title }}</td>
+                        <td>{{ umfrage.description }}</td>
+                        <td>
+                        {% for date in umfrage.termins  %}
+                            <div>{{ date.date|date('d.m.Y h:m') }}</div>
+                        {% endfor %}
+                        </td>
+                        <td>{{ umfrage.expiration_date|date('d.m.Y h:m') }}</td>
+                        <td>
+                            <a class="btn btn-success d-flex flex-wrap-reverse p-3 mb-1 justify-content-center" href="">Vote</a>
+                            <a class="btn btn-warning" href="">edit</a>
+                            <a class="btn btn-danger"  href="">delete</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="12">Keine Umfragen</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <a class="btn btn-primary" href="{{ path('app_create') }}">Neue Umfrage!</a>
+        </div>
+    </div>
+</div>
+    
+{% endblock %}

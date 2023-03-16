@@ -1,0 +1,18 @@
+@import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap');
+
+
+body {
+    background-color: #161616;
+    color: #e3e3e3;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+table.table{
+    color:  #e3e3e3
+}
+:root{
+    --bs-primary: #057af0;
+    --bs-link-color: var(--bs-primary);
+    --bs-table-color: #e3e3e3;
+}
