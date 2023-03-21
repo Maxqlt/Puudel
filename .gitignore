@@ -10,6 +10,8 @@
 
 ###> symfony/webpack-encore-bundle ###
 /node_modules/
+/vendor/
+/var/cache/
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###

@@ -16,3 +16,22 @@ table.table{
     --bs-link-color: var(--bs-primary);
     --bs-table-color: #e3e3e3;
 }
+.author-box{
+    background-color: #161616;
+    color: #e3e3e3;
+    font-style: italic;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: small;
+    float: right;
+}
+.border{
+    border: 1px solid #057af0 !important;
+    border-radius: 5px !important;
+}
+table{
+
+    .table-termine{
+        background-color: #ffffff23 !important; 
+    }
+}

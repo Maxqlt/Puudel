@@ -1,0 +1,107 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UmfrageController!{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Author</th>
+                <th>Author Email</th>
+                <th>Title</th>
+                <th>Beschreibung</th>
+                <th>Termine</th>
+                <th>Expiration Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% if umfrage %}
+            <tr>
+                <td>{{ umfrage.id }}</td>
+                <td>{{ umfrage.name }}</td>
+                <td>{{ umfrage.email }}</td>
+                <td>{{ umfrage.title }}</td>
+                <td>{{ umfrage.description }}</td>
+                <td>
+                {% for date in umfrage.termins  %}
+                    <div>{{ date.date|date('d.m.Y h:m') }}</div>
+                {% endfor %}
+                </td>
+                <td>{{ umfrage.expiration_date|date('d.m.Y h:m') }}</td>
+                <td>
+                    <a class="btn btn-success d-flex flex-wrap-reverse p-3 mb-1 justify-content-center" href="">Vote</a>
+                    <a class="btn btn-warning" href="">edit</a>
+                    <a class="btn btn-danger"  href="">delete</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">Keine Umfragedaten Gefunden</td>
+            </tr>
+        {% endif %}
+        </tbody>
+    </table>
+    <hr>
+    {% if umfrage %}
+    <div class="row">
+        <div class="col-8 offset-1 border">
+            <h1>{{umfrage.title}}</h1>
+            
+            <div class="d-flex row">
+                <div class="col-10">
+                    {{umfrage.description}}
+                </div>
+                <div class=" col-2 author-box">
+                    Erstellt von: 
+                    <br>
+                    <div class="author">
+                        {{umfrage.name}}
+                    </div>
+                    <div class="author-mail">
+                        {{umfrage.email}}
+                </div>
+            </div>
+            
+            
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        {% for date in umfrage.termins  %}
+                        <th class="table-termine text-center">
+                            {{ date.date|date('d.m.Y') }}<br>
+                            {{ date.date|date('h:i') }}
+                            </td>
+                        </th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {# {% foreach user in Controller > $USER_NYI %} #}
+                    <tr>
+                        <td>
+                        
+                        {{ user.name ?? 'Neuer User Form' }}
+                        </td>
+                        {% for date in umfrage.termins  %}
+                            <td>
+                                Vote Form für ID: {{date.id}}
+                            </td>
+                        {% endfor %}
+                    {# {% endforeach %} #}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% else %}
+            <tr>
+                <td colspan="12">Keine Umfragedaten Gefunden</td>
+            </tr>
+    {% endif %}
+    <hr>
+    <a class="btn btn-primary" href="{{ path('app_home') }}">Zurück</a>
+</div>
+{% endblock %}

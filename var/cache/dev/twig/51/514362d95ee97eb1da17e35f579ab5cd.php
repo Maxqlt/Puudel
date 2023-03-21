@@ -154,7 +154,10 @@ class __TwigTemplate_f45c8a9ec3053535cfcd2e29aed9edd0 extends Template
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["umfrage"], "expiration_date", [], "any", false, false, false, 37), "d.m.Y h:m"), "html", null, true);
             echo "</td>
                         <td>
-                            <a class=\"btn btn-success d-flex flex-wrap-reverse p-3 mb-1 justify-content-center\" href=\"\">Vote</a>
+                            <a class=\"btn btn-success d-flex flex-wrap-reverse p-3 mb-1 justify-content-center\" href=\"";
+            // line 39
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_umfrage", ["id" => twig_get_attribute($this->env, $this->source, $context["umfrage"], "id", [], "any", false, false, false, 39)]), "html", null, true);
+            echo "\">Vote</a>
                             <a class=\"btn btn-warning\" href=\"\">edit</a>
                             <a class=\"btn btn-danger\"  href=\"\">delete</a>
                         </td>
@@ -204,7 +207,7 @@ class __TwigTemplate_f45c8a9ec3053535cfcd2e29aed9edd0 extends Template
 
     public function getDebugInfo()
     {
-        return array (  180 => 51,  176 => 49,  167 => 45,  154 => 37,  151 => 36,  142 => 34,  138 => 33,  133 => 31,  129 => 30,  125 => 29,  121 => 28,  117 => 27,  114 => 26,  109 => 25,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  183 => 51,  179 => 49,  170 => 45,  159 => 39,  154 => 37,  151 => 36,  142 => 34,  138 => 33,  133 => 31,  129 => 30,  125 => 29,  121 => 28,  117 => 27,  114 => 26,  109 => 25,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -247,7 +250,7 @@ class __TwigTemplate_f45c8a9ec3053535cfcd2e29aed9edd0 extends Template
                         </td>
                         <td>{{ umfrage.expiration_date|date('d.m.Y h:m') }}</td>
                         <td>
-                            <a class=\"btn btn-success d-flex flex-wrap-reverse p-3 mb-1 justify-content-center\" href=\"\">Vote</a>
+                            <a class=\"btn btn-success d-flex flex-wrap-reverse p-3 mb-1 justify-content-center\" href=\"{{ path('app_umfrage', { 'id': umfrage.id })}}\">Vote</a>
                             <a class=\"btn btn-warning\" href=\"\">edit</a>
                             <a class=\"btn btn-danger\"  href=\"\">delete</a>
                         </td>

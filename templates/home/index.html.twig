@@ -36,7 +36,7 @@
                         </td>
                         <td>{{ umfrage.expiration_date|date('d.m.Y h:m') }}</td>
                         <td>
-                            <a class="btn btn-success d-flex flex-wrap-reverse p-3 mb-1 justify-content-center" href="">Vote</a>
+                            <a class="btn btn-success d-flex flex-wrap-reverse p-3 mb-1 justify-content-center" href="{{ path('app_umfrage', { 'id': umfrage.id })}}">Vote</a>
                             <a class="btn btn-warning" href="">edit</a>
                             <a class="btn btn-danger"  href="">delete</a>
                         </td>
