@@ -18,7 +18,7 @@ class User
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\OneToMany(mappedBy: 'user_id', targetEntity: Vote::class)]
+    #[ORM\OneToMany(mappedBy: 'user_id', targetEntity: Vote::class, cascade: ['persist', 'remove'])]
     private Collection $votes;
 
     public function __construct()

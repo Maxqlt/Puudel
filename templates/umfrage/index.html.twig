@@ -80,18 +80,25 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {# {% foreach user in Controller > $USER_NYI %} #}
+                    {% foreach user in Controller}
                     <tr>
-                        <td>
                         
-                        {{ user.name ?? 'Neuer User Form' }}
+                        <td>
+
+                            
+                            {{ form_start(voter) }}
+                            {{ form_row(voter.name) }}
+                            {{ form_row(voter.save) }}
                         </td>
-                        {% for date in umfrage.termins  %}
+                        {% for vote in voter.votes  %}
                             <td>
-                                Vote Form für ID: {{date.id}}
+                                {{ form_row(vote) }}
                             </td>
                         {% endfor %}
-                    {# {% endforeach %} #}
+                        
+                            {{ form_end(voter) }}
+                    {% endforeach %}
+                    </tr>
                 </tbody>
             </table>
         </div>
