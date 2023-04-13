@@ -67,8 +67,20 @@ class __TwigTemplate_c70ed96bd69833606ae0dfb10745d89b extends Template
     <body>
         ";
         // line 17
+        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 17, $this->source); })()), "session", [], "any", false, false, false, 17), "flashbag", [], "any", false, false, false, 17), "has", [0 => "error"], "method", false, false, false, 17)) {
+            // line 18
+            echo "            ";
+            $context["lastError"] = twig_last($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 18, $this->source); })()), "session", [], "any", false, false, false, 18), "flashbag", [], "any", false, false, false, 18), "get", [0 => "error"], "method", false, false, false, 18));
+            // line 19
+            echo "            <div class=\"alert alert-danger\">";
+            echo twig_escape_filter($this->env, (isset($context["lastError"]) || array_key_exists("lastError", $context) ? $context["lastError"] : (function () { throw new RuntimeError('Variable "lastError" does not exist.', 19, $this->source); })()), "html", null, true);
+            echo "</div>
+        ";
+        }
+        // line 21
+        echo "        ";
         $this->displayBlock('body', $context, $blocks);
-        // line 18
+        // line 22
         echo "    </body>
 </html>
 ";
@@ -145,7 +157,7 @@ class __TwigTemplate_c70ed96bd69833606ae0dfb10745d89b extends Template
 
     }
 
-    // line 17
+    // line 21
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -168,9 +180,14 @@ class __TwigTemplate_c70ed96bd69833606ae0dfb10745d89b extends Template
         return "base.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  149 => 17,  136 => 13,  126 => 12,  113 => 9,  103 => 8,  84 => 5,  72 => 18,  70 => 17,  66 => 15,  64 => 12,  61 => 11,  58 => 8,  53 => 5,  47 => 1,);
+        return array (  161 => 21,  148 => 13,  138 => 12,  125 => 9,  115 => 8,  96 => 5,  84 => 22,  81 => 21,  75 => 19,  72 => 18,  70 => 17,  66 => 15,  64 => 12,  61 => 11,  58 => 8,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -191,9 +208,13 @@ class __TwigTemplate_c70ed96bd69833606ae0dfb10745d89b extends Template
         {% endblock %}
     </head>
     <body>
+        {% if app.session.flashbag.has('error') %}
+            {% set lastError = app.session.flashbag.get('error')|last %}
+            <div class=\"alert alert-danger\">{{ lastError }}</div>
+        {% endif %}
         {% block body %}{% endblock %}
     </body>
 </html>
-", "base.html.twig", "D:\\Projects\\Puudel\\templates\\base.html.twig");
+", "base.html.twig", "D:\\Max Projects\\Symfony\\dritter-versuch\\templates\\base.html.twig");
     }
 }

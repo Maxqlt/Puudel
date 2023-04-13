@@ -14,6 +14,10 @@
         {% endblock %}
     </head>
     <body>
+        {% if app.session.flashbag.has('error') %}
+            {% set lastError = app.session.flashbag.get('error')|last %}
+            <div class="alert alert-danger">{{ lastError }}</div>
+        {% endif %}
         {% block body %}{% endblock %}
     </body>
 </html>

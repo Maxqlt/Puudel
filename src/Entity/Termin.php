@@ -22,7 +22,7 @@ class Termin
     #[ORM\ManyToOne(inversedBy: 'termins')]
     private ?Umfrage $umfrage_id = null;
 
-    #[ORM\OneToMany(mappedBy: 'termin_id', targetEntity: Vote::class)]
+    #[ORM\OneToMany(mappedBy: 'termin_id', targetEntity: Vote::class, cascade: ['persist', 'remove'])]
     private Collection $votes;
 
     public function __construct()

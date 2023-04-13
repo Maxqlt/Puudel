@@ -48,7 +48,14 @@ class CreateController extends AbstractController
             // redirect to the answer page
             return $this->redirect('/umfrage/'.$umfrage->getId());
         }
-         
+        if ($umfrageForm->isSubmitted() && !$umfrageForm->isValid()) {
+            $errors = $umfrageForm->getErrors(true);
+            foreach ($errors as $error) {
+                $this->addFlash('error', $error->getMessage());
+            }
+        
+            return $this->redirectToRoute('Home');
+        } 
 
         return $this->render('create/index.html.twig', [
             'controller_name' => 'CreateController',

@@ -9,9 +9,11 @@
 ###< symfony/phpunit-bridge ###
 
 ###> symfony/webpack-encore-bundle ###
-/node_modules/
-/vendor/
-/var/cache/
+node_modules/
+vendor/
+var/cache/
+var/log/
 npm-debug.log
 yarn-error.log
+public/build/
 ###< symfony/webpack-encore-bundle ###

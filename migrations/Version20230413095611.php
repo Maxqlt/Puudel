@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20230316124915 extends AbstractMigration
+final class Version20230413095611 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -24,7 +24,8 @@ final class Version20230316124915 extends AbstractMigration
         $this->addSql('CREATE INDEX IDX_EFAFBA9C58896142 ON termin (umfrage_id_id)');
         $this->addSql('CREATE TABLE umfrage (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, title VARCHAR(255) NOT NULL, decription VARCHAR(255) DEFAULT NULL, expiration_date DATETIME NOT NULL)');
         $this->addSql('CREATE TABLE user (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name VARCHAR(255) NOT NULL)');
-        $this->addSql('CREATE TABLE vote (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, termin_id_id INTEGER DEFAULT NULL, user_id_id INTEGER DEFAULT NULL, CONSTRAINT FK_5A10856472192A88 FOREIGN KEY (termin_id_id) REFERENCES termin (id) NOT DEFERRABLE INITIALLY IMMEDIATE, CONSTRAINT FK_5A1085649D86650F FOREIGN KEY (user_id_id) REFERENCES user (id) NOT DEFERRABLE INITIALLY IMMEDIATE)');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_8D93D6495E237E06 ON user (name)');
+        $this->addSql('CREATE TABLE vote (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, termin_id_id INTEGER DEFAULT NULL, user_id_id INTEGER DEFAULT NULL, answer VARCHAR(255) NOT NULL, CONSTRAINT FK_5A10856472192A88 FOREIGN KEY (termin_id_id) REFERENCES termin (id) NOT DEFERRABLE INITIALLY IMMEDIATE, CONSTRAINT FK_5A1085649D86650F FOREIGN KEY (user_id_id) REFERENCES user (id) NOT DEFERRABLE INITIALLY IMMEDIATE)');
         $this->addSql('CREATE INDEX IDX_5A10856472192A88 ON vote (termin_id_id)');
         $this->addSql('CREATE INDEX IDX_5A1085649D86650F ON vote (user_id_id)');
         $this->addSql('CREATE TABLE messenger_messages (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, body CLOB NOT NULL, headers CLOB NOT NULL, queue_name VARCHAR(190) NOT NULL, created_at DATETIME NOT NULL, available_at DATETIME NOT NULL, delivered_at DATETIME DEFAULT NULL)');

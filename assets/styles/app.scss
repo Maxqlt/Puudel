@@ -34,4 +34,21 @@ table{
     .table-termine{
         background-color: #ffffff23 !important; 
     }
+    svg{
+        height: 2em;
+    }
+        .fa-square-check{
+            height: 2em;
+            color: var(--bs-success);
+        }
+        .fa-circle-question{
+            height: 2em;
+            color: var(--bs-warning);
+        }
+        .fa-square-xmark{
+            height: 2em;
+            color: var(--bs-danger);
+        }
+    
+    
 }

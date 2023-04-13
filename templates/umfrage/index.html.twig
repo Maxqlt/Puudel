@@ -80,7 +80,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% foreach user in Controller}
+
+                    {% for key,termin in db_termine %}
+                    <tr>
+                        <td>{{key}}</td>
+                        {% for date in termin  %}
+                        <td class="text-center">
+                            {% if date.answer == 'yes' %}
+                            <i class="fa-solid fa-square-check"></i>
+                            {% elseif date.answer == 'maybe' %}
+                                <i class="fa-solid fa-circle-question"></i>
+                            {% else %}
+                               <i class="fa-solid fa-square-xmark"></i>
+                            {% endif %}
+                        </td>
+                        {% endfor %}
+                    {% endfor %}
                     <tr>
                         
                         <td>
@@ -97,7 +112,6 @@
                         {% endfor %}
                         
                             {{ form_end(voter) }}
-                    {% endforeach %}
                     </tr>
                 </tbody>
             </table>

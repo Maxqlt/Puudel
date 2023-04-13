@@ -283,6 +283,6 @@ class __TwigTemplate_d2179c24ecb2ebd88336f9000c3a257d extends Template
         });
     </script>
 {% endblock %}
-", "@WebProfiler/Profiler/open.html.twig", "D:\\Projects\\Puudel\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\open.html.twig");
+", "@WebProfiler/Profiler/open.html.twig", "D:\\Max Projects\\Symfony\\dritter-versuch\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\open.html.twig");
     }
 }
