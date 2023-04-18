@@ -57,23 +57,33 @@ class UmfrageController extends AbstractController
         ->getResult();
         
         // dd($votes);
-
         $userDisplayArray = [];
+        $dateSummary = [];
         foreach ($votes as $vote) {
-
+        
+            $dateSummary[$vote['date']->format('Y-m-d H:i:s')][] = $vote['answer'];
             $userDisplayArray[$vote['name']][] = [
                 'date' => $vote['date']->format('Y-m-d H:i:s'),
                 'answer' => $vote['answer'],
             ];
-        }    
-
-
-        // dd($userDisplayArray);
-
-
-
-
-
+        }
+        foreach ($dateSummary as $date => $answers) {
+            $dateSummary[$date] = [
+                'yes' => count(array_filter($answers, fn($answer) => $answer === 'yes')),
+                'no' => count(array_filter($answers, fn($answer) => $answer === 'no')),
+                'maybe' => count(array_filter($answers, fn($answer) => $answer === 'maybe')),
+                'stared' => 0,
+            ];
+        }
+        $maxCount = 0;
+        $maxElement = '';
+        foreach ($dateSummary as $key => $innerArray) {
+            if (isset($innerArray['yes']) && $innerArray['yes'] > $maxCount) {
+                $maxCount = $innerArray['yes'];
+                $maxElement = $key;
+            }
+        }
+        $dateSummary[$maxElement]['stared'] = 1;
 
 
         $voter = new User();
@@ -134,6 +144,7 @@ class UmfrageController extends AbstractController
             'umfrage' => $umfrage,
             'voter' => $voterForm,
             'db_termine' => $userDisplayArray,
+            'dateSummary' => $dateSummary,
         
         ]);
     }

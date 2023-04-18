@@ -15,16 +15,18 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name')
+            ->add('name', null, [
+                'label' => 'Name',
+                'attr' => ['placeholder' => 'Neuer Name', 'class' => 'form-control mb-3'],
+            ])
             ->add('votes', CollectionType::class, [
-                'label' => 'Votes',
                 'attr' => ['class' => 'form-control mb-3'],
                 'entry_type' => VoteType::class,
                 'entry_options' => ['label' => false],
                 'by_reference' => false,
             ])
             ->add('save', SubmitType::class, [
-                'label' => 'Votes Abschicken',
+                'label' => false,
                 'attr' => ['class' => 'btn btn-success btn-lg btn-block my-3'],
             ])
 

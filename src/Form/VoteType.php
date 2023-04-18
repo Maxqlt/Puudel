@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Vote;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\ChoiceList\ChoiceList;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
@@ -14,13 +15,19 @@ class VoteType extends AbstractType
     {
         $builder
             ->add('answer', ChoiceType::class, 
-            [
+            [   
                 'choices' => [
-                    'yes' => 'yes',
-                    'maybe' => 'maybe',
-                    'no' => 'no',
+                    'y' => 'yes',
+                    'n' => 'maybe',
+                    'm' => 'no',
                 ],
-            'expanded' => true
+                'expanded' => true,
+                'label' => false,
+                'label_attr' => [],
+                'choice_label' => false,
+                'choice_attr' => [
+                    'yes' => ['class' => 'btn btn-outline-success'],
+                ],
             ])
         ;
     }

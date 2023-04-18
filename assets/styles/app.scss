@@ -9,7 +9,25 @@ body {
     font-weight: 700;
 }
 table.table{
-    color:  #e3e3e3
+    .user-input-row{
+        background-color: #080c3f;
+        #user_save{
+            display: none;
+        }
+        .save-btn{
+            margin-left: -1.3rem;
+        }
+        .anser-input-cell{
+            align-items: center;
+        }
+    }
+    color:  #e3e3e3;
+    input{
+        background-color: #161616;
+        color: #e3e3e3;
+        border: 1px solid #057af0;
+        border-radius: 5px;
+    }
 }
 :root{
     --bs-primary: #057af0;
@@ -28,6 +46,13 @@ table.table{
 .border{
     border: 1px solid #057af0 !important;
     border-radius: 5px !important;
+}
+.summary{
+    span{
+        background-color: #161616;
+        color: #e3e3e3;
+        font-size: 2rem;
+    }
 }
 table{
 
@@ -48,6 +73,10 @@ table{
         .fa-square-xmark{
             height: 2em;
             color: var(--bs-danger);
+        }
+        .fa-star{
+            height: 2em;
+            color: var(--bs-warning);
         }
     
     

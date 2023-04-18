@@ -96,22 +96,63 @@
                         </td>
                         {% endfor %}
                     {% endfor %}
-                    <tr>
+                    <tr class="user-input-row">
                         
                         <td>
 
                             
                             {{ form_start(voter) }}
-                            {{ form_row(voter.name) }}
-                            {{ form_row(voter.save) }}
+                            <div class="row">
+                            <div class="col-9">
+                            {{ form_widget(voter.name) }}
+                            </div>
+                            <div class="col-2">
+                            {{ form_widget(voter.save, {'attr': {'class': 'btn'}}) }}
+                            <label class="save-btn btn btn-outline-primary" for="{{voter.save.vars.id}}">
+                                <i class="fa-solid fa-save"></i>
+                            </label>
+                            </div>
+                            </div>
+                            
                         </td>
                         {% for vote in voter.votes  %}
-                            <td>
-                                {{ form_row(vote) }}
+                            <td class ="answer-input-cell">
+                                    {% for answer in vote.children.answer.children  %}
+                                        {{ form_widget(answer, {'attr': {'class': 'btn-check'}}) }}
+                                        <label class="btn btn-outline-primary" for="{{ answer.vars.id }}">
+                                            {% if answer.vars.value == 'yes' %}
+                                                <i class="fa-solid fa-square-check"></i>
+                                            {% elseif answer.vars.value == 'maybe' %}
+                                                <i class="fa-solid fa-circle-question"></i>
+                                             {% elseif answer.vars.value == 'no' %}
+                                                <i class="fa-solid fa-square-xmark"></i>
+                                            {% endif %}
+
+                                        </label>
+                                    {% endfor %}
+                            
                             </td>
                         {% endfor %}
                         
                             {{ form_end(voter) }}
+                    </tr>
+                    <tr>
+                        <td>Summary:</td>
+                        {% for date in dateSummary  %}
+                        <td class="text-center">
+                            <div class="summary p-3 mb-1 justify-content-center">
+                                <div>
+                                <i class="fa-solid fa-square-check"></i> <span>:&nbsp{{date.yes}}</span>  {% if date.stared is same as(1) %}<i class="fa-solid fa-star"></i>{% endif %}
+                                </div>
+                                <div>
+                               <i class="fa-solid fa-circle-question"></i> <span>:&nbsp{{date.maybe}}</span>
+                                </div>
+                                <div>
+                                <i class="fa-solid fa-square-xmark"></i> <span>:&nbsp{{date.no}}</span>
+                                </div>
+                            </div>
+                        </td>
+                        {% endfor %}
                     </tr>
                 </tbody>
             </table>
