@@ -10,7 +10,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class VoteType extends AbstractType
-{
+{   
+    
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
@@ -23,11 +24,7 @@ class VoteType extends AbstractType
                 ],
                 'expanded' => true,
                 'label' => false,
-                'label_attr' => [],
                 'choice_label' => false,
-                'choice_attr' => [
-                    'yes' => ['class' => 'btn btn-outline-success'],
-                ],
             ])
         ;
     }
@@ -36,6 +33,9 @@ class VoteType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Vote::class,
+            'label' => false,
+            'label_attr' => ['class' => ''], // disable the label rendering
+            'attr' => ['class' => 'form-control'], // set the class attribute for the form element
         ]);
     }
 }

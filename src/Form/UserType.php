@@ -17,17 +17,17 @@ class UserType extends AbstractType
         $builder
             ->add('name', null, [
                 'label' => 'Name',
-                'attr' => ['placeholder' => 'Neuer Name', 'class' => 'form-control mb-3'],
+                'attr' => ['placeholder' => 'Neuer Name', 'class' => 'form-control'],
             ])
             ->add('votes', CollectionType::class, [
-                'attr' => ['class' => 'form-control mb-3'],
+                'attr' => ['class' => 'form-control'],
                 'entry_type' => VoteType::class,
                 'entry_options' => ['label' => false],
                 'by_reference' => false,
             ])
             ->add('save', SubmitType::class, [
                 'label' => false,
-                'attr' => ['class' => 'btn btn-success btn-lg btn-block my-3'],
+                'attr' => ['class' => 'btn btn-success'],
             ])
 
         ;

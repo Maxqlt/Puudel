@@ -108,7 +108,7 @@
                             </div>
                             <div class="col-2">
                             {{ form_widget(voter.save, {'attr': {'class': 'btn'}}) }}
-                            <label class="save-btn btn btn-outline-primary" for="{{voter.save.vars.id}}">
+                            <label class="save-btn btn" for="{{voter.save.vars.id}}">
                                 <i class="fa-solid fa-save"></i>
                             </label>
                             </div>
@@ -119,7 +119,7 @@
                             <td class ="answer-input-cell">
                                     {% for answer in vote.children.answer.children  %}
                                         {{ form_widget(answer, {'attr': {'class': 'btn-check'}}) }}
-                                        <label class="btn btn-outline-primary" for="{{ answer.vars.id }}">
+                                        <label class="btn" for="{{ answer.vars.id }}">
                                             {% if answer.vars.value == 'yes' %}
                                                 <i class="fa-solid fa-square-check"></i>
                                             {% elseif answer.vars.value == 'maybe' %}
@@ -142,7 +142,7 @@
                         <td class="text-center">
                             <div class="summary p-3 mb-1 justify-content-center">
                                 <div>
-                                <i class="fa-solid fa-square-check"></i> <span>:&nbsp{{date.yes}}</span>  {% if date.stared is same as(1) %}<i class="fa-solid fa-star"></i>{% endif %}
+                                <i class="fa-solid fa-square-check"></i> <span>:&nbsp{{date.yes}}</span>  {% if date.stared is same as(1) %}<i class="fa-solid fa-star" style="opacity: 0.5"></i>{% endif %}
                                 </div>
                                 <div>
                                <i class="fa-solid fa-circle-question"></i> <span>:&nbsp{{date.maybe}}</span>

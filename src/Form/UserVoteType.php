@@ -16,8 +16,8 @@ class UserVoteType extends AbstractType
         $builder
             ->add('name')
             ->add('votes', CollectionType::class, [
-                'label' => 'Votes',
-                'attr' => ['class' => 'form-control mb-3'],
+                'label' => false,
+                'attr' => ['class' => 'form-control'],
                 'entry_type' => VoteType::class,
                 'entry_options' => ['label' => false],
                 'by_reference' => false,

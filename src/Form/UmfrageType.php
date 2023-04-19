@@ -18,23 +18,23 @@ class UmfrageType extends AbstractType
         $builder
             ->add('name', null, [
                 'label' => 'Dein Name:',
-                'attr' => ['class' => 'form-control mb-3'],
+                'attr' => ['class' => 'form-control'],
             ])
             ->add('email', null, [
                 'label' => 'Deine E-Mail:',
-                'attr' => ['class' => 'form-control mb-3'],
+                'attr' => ['class' => 'form-control'],
             ])
             ->add('title', null, [
                 'label' => 'Titel',
-                'attr' => ['class' => 'form-control  mb-3'],
+                'attr' => ['class' => 'form-control'],
             ])
             ->add('description', TextareaType::class, [
                 'label' => 'Beschreibung',
-                'attr' => ['class' => 'form-control  mb-3'],
+                'attr' => ['class' => 'form-control'],
             ])
             ->add('termins', CollectionType::class, [
                 'label' => 'Termine',
-                'attr' => ['class' => 'form-control mb-3'],
+                'attr' => ['class' => 'form-control'],
                 'entry_type' => TerminType::class,
                 'entry_options' => ['label' => false],
                 'by_reference' => false,
@@ -42,7 +42,7 @@ class UmfrageType extends AbstractType
             ])
             ->add('save', SubmitType::class, [
                 'label' => 'Umfrage erstellen',
-                'attr' => ['class' => 'btn btn-success btn-lg btn-block my-3'],
+                'attr' => ['class' => 'btn btn-success btn-lg '],
             ]);
     }
 

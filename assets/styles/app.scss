@@ -2,40 +2,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap');
 
 
+//  
+:root{
+    --bs-primary: #69b3fc;
+    --bs-secondary: #6c757d;
+    --bs-success: hsl(134, 61%, 60%);
+
+    --bs-info: #17a2b8;
+    --bs-warning: hsl(45, 100%, 50%);
+    --bs-danger: hsl(354, 70%, 60%);
+    --bs-light: #f8f9fa;
+
+    --bs-link-color: var(--bs-primary);
+    --bs-table-color: #e3e3e3;
+    --backround-color: #161616;
+}
+
+
+
 body {
-    background-color: #161616;
+    background-color: var(--backround-color);
     color: #e3e3e3;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
 }
-table.table{
-    .user-input-row{
-        background-color: #080c3f;
-        #user_save{
-            display: none;
-        }
-        .save-btn{
-            margin-left: -1.3rem;
-        }
-        .anser-input-cell{
-            align-items: center;
-        }
-    }
-    color:  #e3e3e3;
-    input{
-        background-color: #161616;
-        color: #e3e3e3;
-        border: 1px solid #057af0;
-        border-radius: 5px;
-    }
-}
-:root{
-    --bs-primary: #057af0;
-    --bs-link-color: var(--bs-primary);
-    --bs-table-color: #e3e3e3;
-}
+
 .author-box{
-    background-color: #161616;
+    background-color: var(--backround-color);
     color: #e3e3e3;
     font-style: italic;
     font-family: 'Montserrat', sans-serif;
@@ -49,35 +42,123 @@ table.table{
 }
 .summary{
     span{
-        background-color: #161616;
+        background-color: var(--backround-color);
         color: #e3e3e3;
         font-size: 2rem;
     }
 }
-table{
+table.table{
+    color:  #e3e3e3;
+    vertical-align: middle;
 
     .table-termine{
         background-color: #ffffff23 !important; 
     }
+    form{
+        vertical-align: middle;
+    }
+    .user-input-row{
+        background-color: #080c3f;
+
+        .answer-input-cell{
+            text-align: center;
+            vertical-align: middle;
+            
+            .btn{
+                svg{
+                    vertical-align: middle;
+                }
+            }
+
+            
+            [id*="answer_0"]:checked ~ .btn  {
+                &[for*="_answer_0"] {
+                    background-color: var(--bs-success);  
+                    svg{
+                        color: var(--backround-color);
+                    }
+                } 
+            }    
+            [id*="answer_1"]:checked ~ .btn {
+                &[for*="_answer_1"] {
+                    background-color: var(--bs-warning);  
+                    svg{
+                        color: var(--backround-color);
+                    }
+                }  
+            }    
+            [id*="answer_2"]:checked ~ .btn {
+                &[for*="_answer_2"] {
+                    background-color: var(--bs-danger);  
+                    svg{
+                        color: var(--backround-color);
+                    }
+                }  
+            }    
+            // .btn:hover{
+            //     filter: invert(50%);
+            // }
+
+
+            input{
+                display: none;
+            }
+            .form-check-label{
+                display: none;
+            }            
+        }
+        #user_save{
+            display: none;
+        }
+    }
+    
+    input{
+        background-color: var(--backround-color);
+        color: #e3e3e3;
+        border: 1px solid #057af0;
+        border-radius: 5px;
+    }
     svg{
         height: 2em;
+    }   
+    .save-btn{
+        background-color: var(--backround-color);
+        margin-left: -1.5rem;
+        border: 1px solid #057af0;
     }
-        .fa-square-check{
-            height: 2em;
-            color: var(--bs-success);
+    .save-btn:hover{
+        background-color: var(--bs-success);
+        border: 1px solid #161616;
+        .fa-floppy-disk{
+            color:  #161616;
         }
-        .fa-circle-question{
-            height: 2em;
-            color: var(--bs-warning);
-        }
-        .fa-square-xmark{
-            height: 2em;
-            color: var(--bs-danger);
-        }
-        .fa-star{
-            height: 2em;
-            color: var(--bs-warning);
-        }
+    }
+    .fa-floppy-disk{
+        height: 1.3em;
+        color: var(--bs-primary);
+    }
+    .fa-square-check{
+        height: 2em;
+        color: var(--bs-success);
+    }
+    .fa-circle-question{
+        height: 2em;
+        color: var(--bs-warning);
+    }
+    .fa-square-xmark{
+        height: 2em;
+        color: var(--bs-danger);
+    }
+    .fa-star{
+        // NOT WORKING ATM 
+        height: 2em;
+        color: transparent;
+        background: radial-gradient(circle, rgba(254,219,55,1) 0%, rgba(138,110,47,1) 100%);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        
+    }
     
     
 }
