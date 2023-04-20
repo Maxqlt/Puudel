@@ -1322,3 +1322,16 @@ ec7a71,127.0.0.1,GET,https://127.0.0.1:8000/build/vendors-node_modules_fortaweso
 887449,127.0.0.1,GET,https://127.0.0.1:8000/build/vendors-node_modules_fortawesome_fontawesome-free_js_all_js-node_modules_symfony_stimulus-bri-c75171.css,1681977863,,404
 f8a133,127.0.0.1,GET,https://127.0.0.1:8000/build/vendors-node_modules_fortawesome_fontawesome-free_js_all_js-node_modules_symfony_stimulus-bri-c75171.js,1681977863,43a7ba,404
 43a7ba,127.0.0.1,GET,https://127.0.0.1:8000/build/vendors-node_modules_fortawesome_fontawesome-free_js_all_js-node_modules_symfony_stimulus-bri-c75171.js,1681977863,,404
+1f35b5,127.0.0.1,GET,https://127.0.0.1:8000/umfrage/1,1681977904,,200
+2aae64,127.0.0.1,GET,https://127.0.0.1:8000/build/vendors-node_modules_fortawesome_fontawesome-free_js_all_js-node_modules_symfony_stimulus-bri-c75171.css,1681977904,9f5f95,404
+9f5f95,127.0.0.1,GET,https://127.0.0.1:8000/build/vendors-node_modules_fortawesome_fontawesome-free_js_all_js-node_modules_symfony_stimulus-bri-c75171.css,1681977904,,404
+ba013f,127.0.0.1,GET,https://127.0.0.1:8000/build/vendors-node_modules_fortawesome_fontawesome-free_js_all_js-node_modules_symfony_stimulus-bri-c75171.js,1681977905,23a8cd,404
+23a8cd,127.0.0.1,GET,https://127.0.0.1:8000/build/vendors-node_modules_fortawesome_fontawesome-free_js_all_js-node_modules_symfony_stimulus-bri-c75171.js,1681977905,,404
+b34b1b,127.0.0.1,GET,https://127.0.0.1:8000/umfrage/1,1681977915,,200
+f63019,127.0.0.1,GET,https://127.0.0.1:8000/build/vendors-node_modules_fortawesome_fontawesome-free_js_all_js-node_modules_symfony_stimulus-bri-c75171.css,1681977915,8392f3,404
+8392f3,127.0.0.1,GET,https://127.0.0.1:8000/build/vendors-node_modules_fortawesome_fontawesome-free_js_all_js-node_modules_symfony_stimulus-bri-c75171.css,1681977915,,404
+d461f5,127.0.0.1,GET,https://127.0.0.1:8000/build/vendors-node_modules_fortawesome_fontawesome-free_js_all_js-node_modules_symfony_stimulus-bri-c75171.js,1681977916,8e3765,404
+8e3765,127.0.0.1,GET,https://127.0.0.1:8000/build/vendors-node_modules_fortawesome_fontawesome-free_js_all_js-node_modules_symfony_stimulus-bri-c75171.js,1681977916,,404
+9f48ae,127.0.0.1,GET,https://127.0.0.1:8000/,1681977988,,200
+973c16,127.0.0.1,GET,https://127.0.0.1:8000/umfrage/1,1681977990,,200
+772a87,127.0.0.1,GET,https://127.0.0.1:8000/umfrage/1,1681978044,,200
