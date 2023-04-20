@@ -87,6 +87,6 @@ class __TwigTemplate_26c2397821ecb10804561cfe50b2f2b7 extends Template
     <path d=\"M14 21v-2\"></path>
     <path d=\"M10 21v-2\"></path>
 </svg>
-", "@WebProfiler/Icon/memory.svg", "D:\\Projects\\Puudel\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Icon\\memory.svg");
+", "@WebProfiler/Icon/memory.svg", "D:\\Max Projects\\Symfony\\dritter-versuch\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Icon\\memory.svg");
     }
 }

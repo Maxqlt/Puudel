@@ -16,9 +16,38 @@
     --bs-link-color: var(--bs-primary);
     --bs-table-color: #e3e3e3;
     --backround-color: #161616;
+
+  
 }
 
-
+header{
+    background-color: var(--backround-color);
+    color: #e3e3e3;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    h1{
+        display: inline-block;
+        font-size: 2rem;
+        vertical-align:middle;
+    }
+    nav {
+        background-color: #333;
+        overflow: hidden;
+        margin: 1em 0 ;
+        padding: 0.5em;
+    }
+    nav a {
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+    nav a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+    
+}
 
 body {
     background-color: var(--backround-color);
@@ -141,6 +170,11 @@ table.table{
             color:  #161616;
         }
     }
+    .fa-question-square{
+        //  background-image: url('../assets/icons/my-icon.svg');
+        height: 2em;
+        color: var(--bs-warning);
+    }
     .fa-floppy-disk{
         height: 1.3em;
         color: var(--bs-primary);
@@ -161,9 +195,8 @@ table.table{
         position: relative;
         display: inline-block;
         height: 2em;
-      }
-  
-      .fa-star {
+    }
+    .fa-star {
         height: 2em;
         color: var(--bs-warning);
         animation-name: sparkle;
@@ -172,11 +205,25 @@ table.table{
         animation-delay: 0s;
         animation-iteration-count: infinite;
         animation-direction: alternate;
-      }
-      @keyframes sparkle {
+    }
+    @keyframes sparkle {
         from { opacity: 1; transform: scale(1); }
         to { opacity: 0.8; transform: scale(1.2); }
-      }
-    
-    
+    } 
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    padding: 10px;
+    margin-top: 50px;
+    text-align: center;
+    a{
+        text-decoration: none;
+        &:hover{
+            background-color: #ddd;
+            color: black;
+        }
+    }
 }

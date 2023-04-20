@@ -12,12 +12,13 @@ return [[
     'entrypoints' => [
         'app' => [
             'js' => [
-                '/build/runtime.61b1725c.js',
-                '/build/751.13e05ecb.js',
-                '/build/app.0784ad4d.js',
+                '/build/runtime.js',
+                '/build/vendors-node_modules_fortawesome_fontawesome-free_js_all_js-node_modules_symfony_stimulus-bri-13c58b.js',
+                '/build/app.js',
             ],
             'css' => [
-                '/build/app.5b1841f2.css',
+                '/build/vendors-node_modules_fortawesome_fontawesome-free_js_all_js-node_modules_symfony_stimulus-bri-13c58b.css',
+                '/build/app.css',
             ],
         ],
     ],

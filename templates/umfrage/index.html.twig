@@ -141,15 +141,18 @@
                         {% for date in dateSummary  %}
                         <td class="text-center">
                             <div class="summary p-3 mb-1 justify-content-center">
-                                <div>
-                                <i class="fa-solid fa-square-check"></i> <span>:&nbsp{{date.yes}}</span>  {% if date.stared is same as(1) %}<i id="starIcon" class="fa-solid fa-star"></i>{% endif %}
-                                </div>
-                                <div>
-                               <i class="fa-solid fa-circle-question"></i> <span>:&nbsp{{date.maybe}}</span>
-                                </div>
-                                <div>
-                                <i class="fa-solid fa-square-xmark"></i> <span>:&nbsp{{date.no}}</span>
-                                </div>
+                                    <div>
+                                        <i class="fa-solid fa-square-check"></i> <span>:&nbsp{{date.yes}}</span>  
+                                        {% if date.stared is same as(1) %}
+                                            <i id="starIcon" class="fa-solid fa-star"></i>
+                                        {% endif %}
+                                    </div>
+                                    <div>
+                                         <i class="fa-solid fa-circle-question"></i> <span>:&nbsp{{date.maybe}}</span>
+                                    </div>
+                                    <div>
+                                        <i class="fa-solid fa-square-xmark"></i> <span>:&nbsp{{date.no}}</span>
+                                    </div>
                             </div>
                         </td>
                         {% endfor %}

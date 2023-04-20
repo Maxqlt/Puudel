@@ -692,6 +692,6 @@ class __TwigTemplate_7dd5b0ffc30ea9949b1c2a93e11aba63 extends Template
     });
 })();
 </script>
-", "@WebProfiler/Profiler/settings.html.twig", "D:\\Projects\\Puudel\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\settings.html.twig");
+", "@WebProfiler/Profiler/settings.html.twig", "D:\\Max Projects\\Symfony\\dritter-versuch\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\settings.html.twig");
     }
 }

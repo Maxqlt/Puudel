@@ -83,8 +83,11 @@ class UmfrageController extends AbstractController
                 $maxElement = $key;
             }
         }
-        $dateSummary[$maxElement]['stared'] = 1;
-
+        if (sizeof($dateSummary)>1){
+            $dateSummary[$maxElement]['stared'] = 1;
+        }
+        
+        
 
         $voter = new User();
         

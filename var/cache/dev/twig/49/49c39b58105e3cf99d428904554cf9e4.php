@@ -30,7 +30,9 @@ class __TwigTemplate_c70ed96bd69833606ae0dfb10745d89b extends Template
             'title' => [$this, 'block_title'],
             'stylesheets' => [$this, 'block_stylesheets'],
             'javascripts' => [$this, 'block_javascripts'],
+            'header' => [$this, 'block_header'],
             'body' => [$this, 'block_body'],
+            'footer' => [$this, 'block_footer'],
         ];
     }
 
@@ -67,20 +69,33 @@ class __TwigTemplate_c70ed96bd69833606ae0dfb10745d89b extends Template
     <body>
         ";
         // line 17
-        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 17, $this->source); })()), "session", [], "any", false, false, false, 17), "flashbag", [], "any", false, false, false, 17), "has", [0 => "error"], "method", false, false, false, 17)) {
-            // line 18
+        $this->displayBlock('header', $context, $blocks);
+        // line 35
+        echo "        
+        ";
+        // line 36
+        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 36, $this->source); })()), "session", [], "any", false, false, false, 36), "flashbag", [], "any", false, false, false, 36), "has", [0 => "error"], "method", false, false, false, 36)) {
+            // line 37
             echo "            ";
-            $context["lastError"] = twig_last($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 18, $this->source); })()), "session", [], "any", false, false, false, 18), "flashbag", [], "any", false, false, false, 18), "get", [0 => "error"], "method", false, false, false, 18));
-            // line 19
+            $context["lastError"] = twig_last($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 37, $this->source); })()), "session", [], "any", false, false, false, 37), "flashbag", [], "any", false, false, false, 37), "get", [0 => "error"], "method", false, false, false, 37));
+            // line 38
             echo "            <div class=\"alert alert-danger\">";
-            echo twig_escape_filter($this->env, (isset($context["lastError"]) || array_key_exists("lastError", $context) ? $context["lastError"] : (function () { throw new RuntimeError('Variable "lastError" does not exist.', 19, $this->source); })()), "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["lastError"]) || array_key_exists("lastError", $context) ? $context["lastError"] : (function () { throw new RuntimeError('Variable "lastError" does not exist.', 38, $this->source); })()), "html", null, true);
             echo "</div>
         ";
         }
-        // line 21
-        echo "        ";
+        // line 40
+        echo "     ";
+        // line 41
+        echo "
+
+        ";
+        // line 43
         $this->displayBlock('body', $context, $blocks);
-        // line 22
+        // line 46
+        echo "        ";
+        $this->displayBlock('footer', $context, $blocks);
+        // line 53
         echo "    </body>
 </html>
 ";
@@ -102,7 +117,7 @@ class __TwigTemplate_c70ed96bd69833606ae0dfb10745d89b extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Welcome!";
+        echo "Puudel!";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -157,7 +172,49 @@ class __TwigTemplate_c70ed96bd69833606ae0dfb10745d89b extends Template
 
     }
 
-    // line 21
+    // line 17
+    public function block_header($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "header"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "header"));
+
+        // line 18
+        echo "        <header>
+            <nav>
+                <h1>Puudel Project 🐩</h1>
+                <a href=\"";
+        // line 21
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_home");
+        echo "\">Home</a>
+                <a href=\"";
+        // line 22
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_about");
+        echo "\">About</a>
+                <a href=\"#\">Login</a>
+                <a href=\"#\">Logout</a>
+                <a href=\"#\">Contact</a>
+                <a href=\"#\">Language</a>
+                <a href=\"#\"></a>
+            </nav>
+        </header>
+
+
+
+
+        ";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+    }
+
+    // line 43
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -167,6 +224,34 @@ class __TwigTemplate_c70ed96bd69833606ae0dfb10745d89b extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
+        // line 44
+        echo "           
+        ";
+        
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
+
+        
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
+
+    }
+
+    // line 46
+    public function block_footer($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2 = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_5a27a8ba21ca79b61932376b2fa922d2->enter($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "footer"));
+
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "footer"));
+
+        // line 47
+        echo "        <footer>
+\t        <div class=\"container\">
+                <p><a href=\"#\">FAQ</a> | <a href=\"#\">Donation</a> | &copy; 2023 My Test Project. All rights reserved.</p>
+            </div>
+        </footer>
+        ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -187,7 +272,7 @@ class __TwigTemplate_c70ed96bd69833606ae0dfb10745d89b extends Template
 
     public function getDebugInfo()
     {
-        return array (  161 => 21,  148 => 13,  138 => 12,  125 => 9,  115 => 8,  96 => 5,  84 => 22,  81 => 21,  75 => 19,  72 => 18,  70 => 17,  66 => 15,  64 => 12,  61 => 11,  58 => 8,  53 => 5,  47 => 1,);
+        return array (  249 => 47,  239 => 46,  228 => 44,  218 => 43,  195 => 22,  191 => 21,  186 => 18,  176 => 17,  163 => 13,  153 => 12,  140 => 9,  130 => 8,  111 => 5,  99 => 53,  96 => 46,  94 => 43,  90 => 41,  88 => 40,  82 => 38,  79 => 37,  77 => 36,  74 => 35,  72 => 17,  68 => 15,  66 => 12,  63 => 11,  60 => 8,  55 => 5,  49 => 1,);
     }
 
     public function getSourceContext()
@@ -196,7 +281,7 @@ class __TwigTemplate_c70ed96bd69833606ae0dfb10745d89b extends Template
 <html>
     <head>
         <meta charset=\"UTF-8\">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Puudel!{% endblock %}</title>
         <link rel=\"icon\" href=\"data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>\">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
@@ -208,11 +293,42 @@ class __TwigTemplate_c70ed96bd69833606ae0dfb10745d89b extends Template
         {% endblock %}
     </head>
     <body>
+        {% block header %}
+        <header>
+            <nav>
+                <h1>Puudel Project 🐩</h1>
+                <a href=\"{{ path('app_home')}}\">Home</a>
+                <a href=\"{{ path('app_about')}}\">About</a>
+                <a href=\"#\">Login</a>
+                <a href=\"#\">Logout</a>
+                <a href=\"#\">Contact</a>
+                <a href=\"#\">Language</a>
+                <a href=\"#\"></a>
+            </nav>
+        </header>
+
+
+
+
+        {% endblock %}
+        
         {% if app.session.flashbag.has('error') %}
             {% set lastError = app.session.flashbag.get('error')|last %}
             <div class=\"alert alert-danger\">{{ lastError }}</div>
         {% endif %}
-        {% block body %}{% endblock %}
+     {# create a navbar here #}
+
+
+        {% block body %}
+           
+        {% endblock %}
+        {% block footer %}
+        <footer>
+\t        <div class=\"container\">
+                <p><a href=\"#\">FAQ</a> | <a href=\"#\">Donation</a> | &copy; 2023 My Test Project. All rights reserved.</p>
+            </div>
+        </footer>
+        {% endblock %}
     </body>
 </html>
 ", "base.html.twig", "D:\\Max Projects\\Symfony\\dritter-versuch\\templates\\base.html.twig");

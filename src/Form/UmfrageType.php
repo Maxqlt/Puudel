@@ -31,6 +31,7 @@ class UmfrageType extends AbstractType
             ->add('description', TextareaType::class, [
                 'label' => 'Beschreibung',
                 'attr' => ['class' => 'form-control'],
+                'required' => false,
             ])
             ->add('termins', CollectionType::class, [
                 'label' => 'Termine',
