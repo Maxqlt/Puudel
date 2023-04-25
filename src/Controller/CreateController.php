@@ -28,8 +28,6 @@ class CreateController extends AbstractController
         $termin = new Termin();
         // add FIRST termin to umfrage
         $umfrage->addTermin($termin);
-        
-
 
         // create form 
         $umfrageForm = $this->createForm(UmfrageType::class, $umfrage);
@@ -39,6 +37,7 @@ class CreateController extends AbstractController
         if ($umfrageForm->isSubmitted() && $umfrageForm->isValid()) {
             // set expiration date
             $umfrage->setExpirationDate(new \DateTime('tomorrow'));
+            $umfrage->setLoggedInUser($this->getUser());
 
             // create maanager and save vote
             $em = $this->doctrine->getManager();
@@ -53,9 +52,8 @@ class CreateController extends AbstractController
             foreach ($errors as $error) {
                 $this->addFlash('error', $error->getMessage());
             }
-        
             return $this->redirectToRoute('Home');
-        } 
+        }
 
         return $this->render('create/index.html.twig', [
             'controller_name' => 'CreateController',

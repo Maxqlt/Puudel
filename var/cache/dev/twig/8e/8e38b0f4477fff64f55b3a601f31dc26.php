@@ -120,33 +120,37 @@ class __TwigTemplate_38679c63ec2de8af8777d0c0147a1143 extends Template
         // line 22
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 22, $this->source); })()), "description", [], "any", false, false, false, 22), 'row');
         echo "   
+            ";
+        // line 23
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 23, $this->source); })()), "private", [], "any", false, false, false, 23), 'row');
+        echo "   
               
             <h3>Termine</h3>        
             <div class=\"flex-row\">
                 ";
-        // line 26
+        // line 27
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 26, $this->source); })()), "termins", [], "any", false, false, false, 26));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 27, $this->source); })()), "termins", [], "any", false, false, false, 27));
         foreach ($context['_seq'] as $context["_key"] => $context["termin"]) {
-            // line 27
+            // line 28
             echo "                    ";
-            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, $context["termin"], "date", [], "any", false, false, false, 27), 'row');
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, $context["termin"], "date", [], "any", false, false, false, 28), 'row');
             echo "
                 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['termin'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 28
+        // line 29
         echo "   
                 <div class=\"termins flex-wrap col-12\"
                     data-index=\"";
-        // line 30
-        (((twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 30, $this->source); })()), "termins", [], "any", false, false, false, 30)) > 0)) ? (print (twig_escape_filter($this->env, (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_last($this->env, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 30, $this->source); })()), "termins", [], "any", false, false, false, 30)), "vars", [], "any", false, false, false, 30), "name", [], "any", false, false, false, 30) + 1), "html", null, true))) : (print (0)));
+        // line 31
+        (((twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 31, $this->source); })()), "termins", [], "any", false, false, false, 31)) > 0)) ? (print (twig_escape_filter($this->env, (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_last($this->env, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 31, $this->source); })()), "termins", [], "any", false, false, false, 31)), "vars", [], "any", false, false, false, 31), "name", [], "any", false, false, false, 31) + 1), "html", null, true))) : (print (0)));
         echo "\"
                     data-prototype=\"";
-        // line 31
-        echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 31, $this->source); })()), "termins", [], "any", false, false, false, 31), "vars", [], "any", false, false, false, 31), "prototype", [], "any", false, false, false, 31), 'widget'), "html_attr");
+        // line 32
+        echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 32, $this->source); })()), "termins", [], "any", false, false, false, 32), "vars", [], "any", false, false, false, 32), "prototype", [], "any", false, false, false, 32), 'widget'), "html_attr");
         echo "\"
                 >
                 </div>    
@@ -155,14 +159,14 @@ class __TwigTemplate_38679c63ec2de8af8777d0c0147a1143 extends Template
             <button type=\"button\" class=\"add_item_link btn btn-primary flex-end\" data-collection-holder-class=\"termins\">Termin hinzufügen:</button>
 
             ";
-        // line 38
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 38, $this->source); })()), 'form_end');
+        // line 39
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 39, $this->source); })()), 'form_end');
         echo "   
         </div>        
         
         <hr>
         <a class=\"btn btn-primary \" href=\"";
-        // line 42
+        // line 43
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_home");
         echo "\">Zurück</a>
         
@@ -213,7 +217,7 @@ class __TwigTemplate_38679c63ec2de8af8777d0c0147a1143 extends Template
 
     public function getDebugInfo()
     {
-        return array (  166 => 42,  159 => 38,  149 => 31,  145 => 30,  141 => 28,  132 => 27,  128 => 26,  121 => 22,  117 => 21,  113 => 20,  109 => 19,  103 => 16,  97 => 13,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  170 => 43,  163 => 39,  153 => 32,  149 => 31,  145 => 29,  136 => 28,  132 => 27,  125 => 23,  121 => 22,  117 => 21,  113 => 20,  109 => 19,  103 => 16,  97 => 13,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -240,6 +244,7 @@ class __TwigTemplate_38679c63ec2de8af8777d0c0147a1143 extends Template
             {{ form_row(form.email) }}
             {{ form_row(form.title) }}
             {{ form_row(form.description) }}   
+            {{ form_row(form.private) }}   
               
             <h3>Termine</h3>        
             <div class=\"flex-row\">

@@ -33,6 +33,10 @@ class UmfrageType extends AbstractType
                 'attr' => ['class' => 'form-control'],
                 'required' => false,
             ])
+            ->add('private', null, [
+                'label' => 'Umfrage privat: (Nur mit Link erreichbar)',
+                'attr' => ['class' => 'form-control'],
+            ])
             ->add('termins', CollectionType::class, [
                 'label' => 'Termine',
                 'attr' => ['class' => 'form-control'],
@@ -41,6 +45,7 @@ class UmfrageType extends AbstractType
                 'by_reference' => false,
                 'allow_add' => true,
             ])
+            
             ->add('save', SubmitType::class, [
                 'label' => 'Umfrage erstellen',
                 'attr' => ['class' => 'btn btn-success btn-lg '],

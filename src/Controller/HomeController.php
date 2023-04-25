@@ -14,9 +14,13 @@ class HomeController extends AbstractController
     // public function index(, TerminRepository $terminRepository): Response
     public function index(UmfrageRepository $umfrageRepository): Response
     {
+
+
+
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
             'umfragen' => $umfrageRepository->findAll(),
+            'testvar' => $this->getUser(),
         ]);
     }
 }

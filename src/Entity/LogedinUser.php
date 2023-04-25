@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\LogedinUserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -28,6 +30,18 @@ class LogedinUser implements UserInterface, PasswordAuthenticatedUserInterface
      */
     #[ORM\Column]
     private ?string $password = null;
+
+    #[ORM\OneToMany(mappedBy: 'logged_in_user', targetEntity: Umfrage::class)]
+    private Collection $created_umfrages;
+
+    #[ORM\OneToMany(mappedBy: 'Owner', targetEntity: User::class)]
+    private Collection $users;
+
+    public function __construct()
+    {
+        $this->created_umfrages = new ArrayCollection();
+        $this->users = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -97,5 +111,65 @@ class LogedinUser implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    /**
+     * @return Collection<int, Umfrage>
+     */
+    public function getCreatedUmfrages(): Collection
+    {
+        return $this->created_umfrages;
+    }
+
+    public function addCreatedUmfrage(Umfrage $createdUmfrage): self
+    {
+        if (!$this->created_umfrages->contains($createdUmfrage)) {
+            $this->created_umfrages->add($createdUmfrage);
+            $createdUmfrage->setLoggedInUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCreatedUmfrage(Umfrage $createdUmfrage): self
+    {
+        if ($this->created_umfrages->removeElement($createdUmfrage)) {
+            // set the owning side to null (unless already changed)
+            if ($createdUmfrage->getLoggedInUser() === $this) {
+                $createdUmfrage->setLoggedInUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->users->contains($user)) {
+            $this->users->add($user);
+            $user->setOwner($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->users->removeElement($user)) {
+            // set the owning side to null (unless already changed)
+            if ($user->getOwner() === $this) {
+                $user->setOwner(null);
+            }
+        }
+
+        return $this;
     }
 }

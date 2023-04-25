@@ -38,6 +38,12 @@ class Umfrage
     #[ORM\OneToMany(mappedBy: 'umfrage_id', targetEntity: Termin::class, cascade: ['persist', 'remove']), ]
     private Collection $termins;
 
+    #[ORM\ManyToOne(inversedBy: 'created_umfrages')]
+    private ?LogedinUser $logged_in_user = null;
+
+    #[ORM\Column]
+    private ?bool $private = null;
+
     public function __construct()
     {
         $this->termins = new ArrayCollection();
@@ -134,6 +140,30 @@ class Umfrage
                 $termin->setUmfrageId(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getLoggedInUser(): ?LogedinUser
+    {
+        return $this->logged_in_user;
+    }
+
+    public function setLoggedInUser(?LogedinUser $logged_in_user): self
+    {
+        $this->logged_in_user = $logged_in_user;
+
+        return $this;
+    }
+
+    public function isPrivate(): ?bool
+    {
+        return $this->private;
+    }
+
+    public function setPrivate(bool $private): self
+    {
+        $this->private = $private;
 
         return $this;
     }

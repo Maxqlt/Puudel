@@ -6,9 +6,49 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
-            
-            {{app.user.email}}
 
+        {{ dump(testvar) }}
+            
+            {# check if app.user.email is set #}
+            {# if yes, display the email #}
+            {# if not, display the message #}
+            
+            {% if app.user is null %}
+                <h1>Willkommen, Gast</h1> 
+            {% else %}
+                <h1>Willkommen, {{ app.user.email }}</h1>
+            {% endif %}
+            <h2>Deine Umfragen:</h2>
+            
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Author</th>
+                        <th>Author Email</th>
+                        <th>Title</th>
+                        <th>Beschreibung</th>
+                        <th>Termine</th>
+                        <th>Expiration Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% if app.user is null %}
+                
+                    <tr>
+                        <td colspan="12"><p>Du bist nicht eingeloggt!</p> </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="12"> <h1> In Arbeit! </h1></td>
+                    <tr>
+                {% endif %}
+                </tbody>
+            </table>
+                
+            
+            <h2>Öffentliche Umfragen:</h2>
             <table class="table">
                 <thead>
                     <tr>
@@ -37,9 +77,17 @@
                         </td>
                         <td>{{ umfrage.expiration_date|date('d.m.Y h:m') }}</td>
                         <td>
+                        {% if app.user is null %}
                             <a class="btn btn-success d-flex flex-wrap-reverse p-3 mb-1 justify-content-center" href="{{ path('app_umfrage', { 'id': umfrage.id })}}">Vote</a>
-                            <a class="btn btn-warning" href="">edit</a>
-                            <a class="btn btn-danger"  href="">delete</a>
+                        {% else %}
+                            {% if app.user == umfrage.loggedInUser %}
+                                <a class="btn btn-success d-flex flex-wrap-reverse p-3 mb-1 justify-content-center" href="{{ path('app_umfrage', { 'id': umfrage.id })}}">Vote</a>
+                                <a class="btn btn-warning" href="">edit</a>
+                                <a class="btn btn-danger"  href="">delete</a>
+                            {% else %}
+                                <a class="btn btn-success d-flex flex-wrap-reverse p-3 mb-1 justify-content-center" href="{{ path('app_umfrage', { 'id': umfrage.id })}}">Vote</a>
+                            {% endif %}
+                        {% endif %}
                         </td>
                     </tr>
                 {% else %}

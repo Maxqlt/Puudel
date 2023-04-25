@@ -21,6 +21,9 @@ class User
     #[ORM\OneToMany(mappedBy: 'user_id', targetEntity: Vote::class, cascade: ['persist', 'remove'])]
     private Collection $votes;
 
+    #[ORM\ManyToOne(inversedBy: 'users')]
+    private ?LogedInUser $Owner = null;
+
     public function __construct()
     {
         $this->votes = new ArrayCollection();
@@ -69,6 +72,18 @@ class User
                 $vote->setUserId(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getOwner(): ?LogedInUser
+    {
+        return $this->Owner;
+    }
+
+    public function setOwner(?LogedInUser $Owner): self
+    {
+        $this->Owner = $Owner;
 
         return $this;
     }

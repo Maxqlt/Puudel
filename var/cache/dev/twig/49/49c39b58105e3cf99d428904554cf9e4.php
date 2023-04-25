@@ -194,8 +194,14 @@ class __TwigTemplate_c70ed96bd69833606ae0dfb10745d89b extends Template
         // line 22
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_about");
         echo "\">About</a>
-                <a href=\"#\">Login</a>
-                <a href=\"#\">Logout</a>
+                <a href=\"";
+        // line 23
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
+        echo "\">Login</a>
+                <a href=\"";
+        // line 24
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
+        echo "\">Logout</a>
                 <a href=\"#\">Contact</a>
                 <a href=\"#\">Language</a>
                 <a href=\"#\"></a>
@@ -272,7 +278,7 @@ class __TwigTemplate_c70ed96bd69833606ae0dfb10745d89b extends Template
 
     public function getDebugInfo()
     {
-        return array (  249 => 47,  239 => 46,  228 => 44,  218 => 43,  195 => 22,  191 => 21,  186 => 18,  176 => 17,  163 => 13,  153 => 12,  140 => 9,  130 => 8,  111 => 5,  99 => 53,  96 => 46,  94 => 43,  90 => 41,  88 => 40,  82 => 38,  79 => 37,  77 => 36,  74 => 35,  72 => 17,  68 => 15,  66 => 12,  63 => 11,  60 => 8,  55 => 5,  49 => 1,);
+        return array (  255 => 47,  245 => 46,  234 => 44,  224 => 43,  203 => 24,  199 => 23,  195 => 22,  191 => 21,  186 => 18,  176 => 17,  163 => 13,  153 => 12,  140 => 9,  130 => 8,  111 => 5,  99 => 53,  96 => 46,  94 => 43,  90 => 41,  88 => 40,  82 => 38,  79 => 37,  77 => 36,  74 => 35,  72 => 17,  68 => 15,  66 => 12,  63 => 11,  60 => 8,  55 => 5,  49 => 1,);
     }
 
     public function getSourceContext()
@@ -299,8 +305,8 @@ class __TwigTemplate_c70ed96bd69833606ae0dfb10745d89b extends Template
                 <h1>Puudel Project 🐩</h1>
                 <a href=\"{{ path('app_home')}}\">Home</a>
                 <a href=\"{{ path('app_about')}}\">About</a>
-                <a href=\"#\">Login</a>
-                <a href=\"#\">Logout</a>
+                <a href=\"{{ path('app_login')}}\">Login</a>
+                <a href=\"{{ path('app_logout')}}\">Logout</a>
                 <a href=\"#\">Contact</a>
                 <a href=\"#\">Language</a>
                 <a href=\"#\"></a>

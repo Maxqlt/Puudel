@@ -56,6 +56,19 @@ Encore
         config.corejs = '3.23';
     })
 
+    .configureLoaderRule('svg', rule => {
+        rule
+          .test(/\.svg$/)
+          .use('svg-url-loader')
+          .loader('svg-url-loader')
+          .options({
+            limit: 4096, // inline files smaller than 4kb
+            encoding: 'base64',
+            fallback: 'file-loader',
+            outputPath: 'images',
+            publicPath: '/build/images', // adjust this to match your Symfony asset path
+          });
+      })
     // enables Sass/SCSS support
     //.enableSassLoader()
 
