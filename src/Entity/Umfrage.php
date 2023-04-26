@@ -44,6 +44,9 @@ class Umfrage
     #[ORM\Column]
     private ?bool $private = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $urlHash = null;
+
     public function __construct()
     {
         $this->termins = new ArrayCollection();
@@ -164,6 +167,18 @@ class Umfrage
     public function setPrivate(bool $private): self
     {
         $this->private = $private;
+
+        return $this;
+    }
+
+    public function getUrlHash(): ?string
+    {
+        return $this->urlHash;
+    }
+
+    public function setUrlHash(?string $urlHash): self
+    {
+        $this->urlHash = $urlHash;
 
         return $this;
     }

@@ -5,14 +5,7 @@
 {% block body %}
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12">
-
-        {{ dump(testvar) }}
-            
-            {# check if app.user.email is set #}
-            {# if yes, display the email #}
-            {# if not, display the message #}
-            
+        <div class="col-12">            
             {% if app.user is null %}
                 <h1>Willkommen, Gast</h1> 
             {% else %}
