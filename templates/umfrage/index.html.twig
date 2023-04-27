@@ -7,30 +7,39 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Author</th>
-                <th>Author Email</th>
                 <th>Title</th>
                 <th>Beschreibung</th>
+                <th>Author</th>
+                <th>Author Email</th>
                 <th>Termine</th>
                 <th>Expiration Date</th>
+                <th>Url-link</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% if umfrage %}
             <tr>
-                <td>{{ umfrage.id }}</td>
-                <td>{{ umfrage.name }}</td>
-                <td>{{ umfrage.email }}</td>
                 <td>{{ umfrage.title }}</td>
                 <td>{{ umfrage.description }}</td>
+                <td>{{ umfrage.name }}</td>
+                <td>{{ umfrage.email }}</td>
                 <td>
                 {% for date in umfrage.termins  %}
                     <div>{{ date.date|date('d.m.Y h:m') }}</div>
                 {% endfor %}
-                </td>
+                </td>s
                 <td>{{ umfrage.expiration_date|date('d.m.Y h:m') }}</td>
+                <td>
+                    <div class="copy-container">
+                        <div class="copy-textfield">
+                            <span class="copy-text">{{app.request.getUri()}}/</span>
+                            <button class="copy-btn" data-clipboard-target=".copy-text">
+                            <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                </td>
                 <td>
                     <a class="btn btn-success d-flex flex-wrap-reverse p-3 mb-1 justify-content-center" href="">Vote</a>
                     <a class="btn btn-warning" href="">edit</a>

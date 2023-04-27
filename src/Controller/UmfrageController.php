@@ -24,13 +24,17 @@ class UmfrageController extends AbstractController
 
     public function __construct(private ManagerRegistry $doctrine) {}
 
-    #[Route('/umfrage/{id}', name: 'app_umfrage')]
+    #[Route('/umfrage/{hash}', name: 'app_umfrage')]
     public function index(
-        int $id, 
+        // string $url_hash, 
+        // int $id,
+        string $hash,
+
         UmfrageRepository $umfrageRepository, 
         VoteRepository $voteRepository, 
         UserRepository $userRepository,
         TerminRepository $terminRepository,
+        EntityManagerInterface $entityManager,
         Request $request
         ): Response
     {
@@ -38,8 +42,10 @@ class UmfrageController extends AbstractController
             
 
 
-        $umfrage = $umfrageRepository->find($id);
-        
+        // $umfrage = $umfrageRepository->find($hash);
+        // dd($umfrage);
+        $umfrage = $umfrageRepository->findOneBy(['urlHash' => $hash]);
+        $id = $umfrage->getId();
         $termine = $terminRepository->findBy(['umfrage_id' => $id]);
         // $votes = $voteRepository->findBy(['termin_id' => $termine]);
         // $user = $userRepository->findBy(['id' => $votes]);
@@ -87,7 +93,7 @@ class UmfrageController extends AbstractController
         }
         
         
-
+        
         $voter = new User();
         
         try{
@@ -115,11 +121,12 @@ class UmfrageController extends AbstractController
         if ($voterForm->isSubmitted() && $voterForm->isValid()) {
             try{
 
+                $voter->setOwner($this->getUser());
                 $em = $this->doctrine->getManager();
                 $em->persist($voter);
                 $em->flush();
                 
-                return $this->redirect('/umfrage/'.$umfrage->getId());
+                return $this->redirect('/umfrage/'.$umfrage->getUrlHash());
             } catch(\Exception $e) {
                 if ($e->getPrevious() instanceof \PDOException) {
                     $errorCode = $e->getPrevious()->errorInfo[1];

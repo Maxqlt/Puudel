@@ -16,13 +16,13 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>Author</th>
-                        <th>Author Email</th>
                         <th>Title</th>
                         <th>Beschreibung</th>
+                        <th>Author</th>
+                        <th>Author Email</th>
                         <th>Termine</th>
                         <th>Expiration Date</th>
+                        <th>Url</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -30,12 +30,53 @@
                 {% if app.user is null %}
                 
                     <tr>
-                        <td colspan="12"><p>Du bist nicht eingeloggt!</p> </td>
+                        <td colspan="12"><p>Diese Funktion steht nur eingeloggten Nutzern zur verfügung!</p> </td>
                     </tr>
                 {% else %}
-                    <tr>
-                        <td colspan="12"> <h1> In Arbeit! </h1></td>
-                    <tr>
+                    {% for umfrage in umfragen %}
+                    {% if umfrage.private == true %}
+                        <tr>
+                            <td>{{ umfrage.title }}</td>
+                            <td>{{ umfrage.description }}</td>
+                            <td>{{ umfrage.name }}</td>
+                            <td>{{ umfrage.email }}</td>
+                            <td>
+                            {% for date in umfrage.termins  %}
+                                <div>{{ date.date|date('d.m.Y h:m') }}</div>
+                            {% endfor %}
+                            </td>
+                            <td>{{ umfrage.expiration_date|date('d.m.Y h:m') }}</td>
+                            <td>
+                                <div class="copy-container">
+                                    <div class="copy-textfield">
+                                        <span class="copy-text">{{app.request.getUri()}}{{umfrage.urlHash}}</span>
+                                        <button class="copy-btn" data-clipboard-target=".copy-text">
+                                        <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                            {% if app.user is null %}
+                                
+                                <a class="btn btn-success d-flex flex-wrap-reverse p-3 mb-1 justify-content-center" href="{{ path('app_umfrage', { 'hash': umfrage.urlHash })}}">Vote</a>
+                            {% else %}
+                                {% if app.user == umfrage.loggedInUser %}
+                                    <a class="btn btn-success d-flex flex-wrap-reverse p-3 mb-1 justify-content-center" href="{{ path('app_umfrage', { 'hash': umfrage.urlHash })}}">Vote</a>
+                                    <a class="btn btn-warning" href="">edit</a>
+                                    <a class="btn btn-danger"  href="">delete</a>
+                                {% else %}
+                                    <a class="btn btn-success d-flex flex-wrap-reverse p-3 mb-1 justify-content-center" href="{{ path('app_umfrage', { 'hash': umfrage.urlHash })}}">Vote</a>
+                                {% endif %}
+                            {% endif %}
+                            </td>
+                        </tr>
+                        {% endif %}
+                    {% else %}
+                        <tr>
+                            <td colspan="12">Keine Umfragen</td>
+                        </tr>
+                    {% endfor %}
                 {% endif %}
                 </tbody>
             </table>
@@ -45,24 +86,24 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>Author</th>
-                        <th>Author Email</th>
                         <th>Title</th>
                         <th>Beschreibung</th>
+                        <th>Author</th>
+                        <th>Author Email</th>
                         <th>Termine</th>
                         <th>Expiration Date</th>
+                        <th>Url</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                 {% for umfrage in umfragen %}
+                {% if umfrage.private != true %}
                     <tr>
-                        <td>{{ umfrage.id }}</td>
-                        <td>{{ umfrage.name }}</td>
-                        <td>{{ umfrage.email }}</td>
                         <td>{{ umfrage.title }}</td>
                         <td>{{ umfrage.description }}</td>
+                        <td>{{ umfrage.name }}</td>
+                        <td>{{ umfrage.email }}</td>
                         <td>
                         {% for date in umfrage.termins  %}
                             <div>{{ date.date|date('d.m.Y h:m') }}</div>
@@ -70,19 +111,31 @@
                         </td>
                         <td>{{ umfrage.expiration_date|date('d.m.Y h:m') }}</td>
                         <td>
+                            <div class="copy-container">
+                                <div class="copy-textfield">
+                                    <span class="copy-text">{{app.request.getUri()}}{{umfrage.urlHash}}</span>
+                                    <button class="copy-btn" data-clipboard-target=".copy-text">
+                                    <i class="fas fa-copy"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
                         {% if app.user is null %}
-                            <a class="btn btn-success d-flex flex-wrap-reverse p-3 mb-1 justify-content-center" href="{{ path('app_umfrage', { 'id': umfrage.id })}}">Vote</a>
+                            
+                            <a class="btn btn-success d-flex flex-wrap-reverse p-3 mb-1 justify-content-center" href="{{ path('app_umfrage', { 'hash': umfrage.urlHash })}}">Vote</a>
                         {% else %}
                             {% if app.user == umfrage.loggedInUser %}
-                                <a class="btn btn-success d-flex flex-wrap-reverse p-3 mb-1 justify-content-center" href="{{ path('app_umfrage', { 'id': umfrage.id })}}">Vote</a>
+                                <a class="btn btn-success d-flex flex-wrap-reverse p-3 mb-1 justify-content-center" href="{{ path('app_umfrage', { 'hash': umfrage.urlHash })}}">Vote</a>
                                 <a class="btn btn-warning" href="">edit</a>
                                 <a class="btn btn-danger"  href="">delete</a>
                             {% else %}
-                                <a class="btn btn-success d-flex flex-wrap-reverse p-3 mb-1 justify-content-center" href="{{ path('app_umfrage', { 'id': umfrage.id })}}">Vote</a>
+                                <a class="btn btn-success d-flex flex-wrap-reverse p-3 mb-1 justify-content-center" href="{{ path('app_umfrage', { 'hash': umfrage.urlHash })}}">Vote</a>
                             {% endif %}
                         {% endif %}
                         </td>
                     </tr>
+                    {% endif %}
                 {% else %}
                     <tr>
                         <td colspan="12">Keine Umfragen</td>

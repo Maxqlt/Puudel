@@ -38,6 +38,7 @@ class CreateController extends AbstractController
             // set expiration date
             $umfrage->setExpirationDate(new \DateTime('tomorrow'));
             $umfrage->setLoggedInUser($this->getUser());
+            $umfrage->setUrlHash(uniqid());
 
             // create maanager and save vote
             $em = $this->doctrine->getManager();
@@ -45,7 +46,7 @@ class CreateController extends AbstractController
             $em->flush();
 
             // redirect to the answer page
-            return $this->redirect('/umfrage/'.$umfrage->getId());
+            return $this->redirect('/umfrage/'.$umfrage->getUrlHash());
         }
         if ($umfrageForm->isSubmitted() && !$umfrageForm->isValid()) {
             $errors = $umfrageForm->getErrors(true);
