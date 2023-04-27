@@ -26,8 +26,6 @@ class UmfrageController extends AbstractController
 
     #[Route('/umfrage/{hash}', name: 'app_umfrage')]
     public function index(
-        // string $url_hash, 
-        // int $id,
         string $hash,
 
         UmfrageRepository $umfrageRepository, 
@@ -39,16 +37,9 @@ class UmfrageController extends AbstractController
         ): Response
     {
         
-            
-
-
-        // $umfrage = $umfrageRepository->find($hash);
-        // dd($umfrage);
         $umfrage = $umfrageRepository->findOneBy(['urlHash' => $hash]);
         $id = $umfrage->getId();
         $termine = $terminRepository->findBy(['umfrage_id' => $id]);
-        // $votes = $voteRepository->findBy(['termin_id' => $termine]);
-        // $user = $userRepository->findBy(['id' => $votes]);
         
         
         $votes = $entityManager->createQueryBuilder()
@@ -61,7 +52,6 @@ class UmfrageController extends AbstractController
         ->getQuery()
         ->getResult();
         
-        // dd($votes);
         $userDisplayArray = [];
         $dateSummary = [];
         foreach ($votes as $vote) {

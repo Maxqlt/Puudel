@@ -1,9 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello UmfrageController!{% endblock %}
+{% block title %}Puudel | {{umfrage.title}}{% endblock %}
 
 {% block body %}
 <div class="container-fluid">
+<i class="fa-solid fa-square-question"></i>
     <table class="table">
         <thead>
             <tr>
@@ -14,7 +15,9 @@
                 <th>Termine</th>
                 <th>Expiration Date</th>
                 <th>Url-link</th>
-                <th>Actions</th>
+                {% if app.user == umfrage.loggedInUser %}
+                    <th>Actions</th>
+                {% endif %}
             </tr>
         </thead>
         <tbody>
@@ -28,23 +31,24 @@
                 {% for date in umfrage.termins  %}
                     <div>{{ date.date|date('d.m.Y h:m') }}</div>
                 {% endfor %}
-                </td>s
+                </td>
                 <td>{{ umfrage.expiration_date|date('d.m.Y h:m') }}</td>
                 <td>
                     <div class="copy-container">
                         <div class="copy-textfield">
                             <span class="copy-text">{{app.request.getUri()}}/</span>
                             <button class="copy-btn" data-clipboard-target=".copy-text">
-                            <i class="fas fa-copy"></i>
+                                <i class="fas fa-copy"></i>
                             </button>
                         </div>
                     </div>
                 </td>
-                <td>
-                    <a class="btn btn-success d-flex flex-wrap-reverse p-3 mb-1 justify-content-center" href="">Vote</a>
-                    <a class="btn btn-warning" href="">edit</a>
-                    <a class="btn btn-danger"  href="">delete</a>
-                </td>
+                {% if app.user == umfrage.loggedInUser %}
+                    <td>
+                        <a class="btn btn-warning" href="">edit</a>
+                        <a class="btn btn-danger"  href="">delete</a>
+                    </td>
+                {% endif %}
             </tr>
         {% else %}
             <tr>
@@ -53,7 +57,6 @@
         {% endif %}
         </tbody>
     </table>
-    <hr>
     {% if umfrage %}
     <div class="row">
         <div class="col-8 offset-1 border">
@@ -71,10 +74,9 @@
                     </div>
                     <div class="author-mail">
                         {{umfrage.email}}
+                    </div>    
                 </div>
             </div>
-            
-            
             <table class="table">
                 <thead>
                     <tr>
@@ -170,12 +172,14 @@
             </table>
         </div>
     </div>
-    {% else %}
-            <tr>
-                <td colspan="12">Keine Umfragedaten Gefunden</td>
-            </tr>
-    {% endif %}
-    <hr>
-    <a class="btn btn-primary" href="{{ path('app_home') }}">Zurück</a>
+        {% else %}
+            <table class="table">
+                <tr>
+                    <td colspan="12">Keine Umfragedaten Gefunden</td>
+                </tr>
+            </table>
+        {% endif %}
+
+    <a class="btn  btn-primary offset-1 mt-2 px-5 back" href="{{ path('app_home') }}">Zurück</a>
 </div>
 {% endblock %}
