@@ -31,7 +31,6 @@ class UmfrageController extends AbstractController
         VoteRepository $voteRepository, 
         UserRepository $userRepository,
         TerminRepository $terminRepository,
-        EntityManagerInterface $entityManager,
         Request $request
         ): Response
     {
