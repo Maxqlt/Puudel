@@ -50,6 +50,11 @@ Encore
     //     config.plugins.push('@babel/a-babel-plugin');
     // })
 
+    .copyFiles({
+        from: './assets/icomoon',
+        to: 'icomoon/[path][name].[ext]'
+    })
+
     // enables and configure @babel/preset-env polyfills
     .configureBabelPresetEnv((config) => {
         config.useBuiltIns = 'usage';
