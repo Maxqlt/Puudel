@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Icons{% endblock %}
+{% block body %}
+    <div class="container-fluid">
+
+		<h1>List of all icons</h1>
+    <p>Icons are from <a href="https://fontawesome.com/">Font Awesome</a> and 
+    <a href="https://icomoon.io/">IcoMoon</a>
+    </p>
+		<table class="table icons">
+      <thead>
+        <tr>
+          <th>Icon</th>
+          <th>Tag + class</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr>
+          <td><i class="icon-spinner spin"></i></td>
+          <td>
+            {% set my_string_variable = '<i class="icon-spinner spin"></i>' %}
+            {{ my_string_variable|escape }}
+          </td>
+        </tr>
+      {% for icon in classes %}
+        <tr>
+          <td><i class="{{icon}}"></i></td>
+          <td>
+            {% set my_string_variable = '<i class="' ~ icon ~ '"></i>' %}
+            {{ my_string_variable|escape }}
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+
+	</div>
+{% endblock %}

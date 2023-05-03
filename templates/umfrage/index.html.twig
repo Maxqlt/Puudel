@@ -4,7 +4,6 @@
 
 {% block body %}
 <div class="container-fluid">
-<i class="fa-solid fa-square-question"></i>
     <table class="table">
         <thead>
             <tr>
@@ -98,11 +97,11 @@
                         {% for date in termin  %}
                         <td class="text-center">
                             {% if date.answer == 'yes' %}
-                            <i class="fa-solid fa-square-check"></i>
+                            <i class="icon-check"></i>
                             {% elseif date.answer == 'maybe' %}
-                                <i class="fa-solid fa-circle-question"></i>
+                                <i class="icon-question" ></i>
                             {% else %}
-                               <i class="fa-solid fa-square-xmark"></i>
+                               <i class="icon-close"></i>
                             {% endif %}
                         </td>
                         {% endfor %}
@@ -120,7 +119,7 @@
                             <div class="col-2">
                             {{ form_widget(voter.save, {'attr': {'class': 'btn'}}) }}
                             <label class="save-btn btn" for="{{voter.save.vars.id}}">
-                                <i class="fa-solid fa-save"></i>
+                                <i class="icon-save"></i>
                             </label>
                             </div>
                             </div>
@@ -132,11 +131,11 @@
                                         {{ form_widget(answer, {'attr': {'class': 'btn-check'}}) }}
                                         <label class="btn" for="{{ answer.vars.id }}">
                                             {% if answer.vars.value == 'yes' %}
-                                                <i class="fa-solid fa-square-check"></i>
+                                                 <i class="icon-check"></i>
                                             {% elseif answer.vars.value == 'maybe' %}
-                                                <i class="fa-solid fa-circle-question"></i>
+                                                <i class="icon-question" ></i>
                                              {% elseif answer.vars.value == 'no' %}
-                                                <i class="fa-solid fa-square-xmark"></i>
+                                                <i class="icon-close"></i>
                                             {% endif %}
 
                                         </label>
@@ -153,16 +152,16 @@
                         <td class="text-center">
                             <div class="summary p-3 mb-1 justify-content-center">
                                     <div>
-                                        <i class="fa-solid fa-square-check"></i> <span>:&nbsp{{date.yes}}</span>  
+                                        <i class="icon-check"></i> <span>:&nbsp{{date.yes}}</span>  
                                         {% if date.stared is same as(1) %}
                                             <i id="starIcon" class="fa-solid fa-star"></i>
                                         {% endif %}
                                     </div>
                                     <div>
-                                         <i class="fa-solid fa-circle-question"></i> <span>:&nbsp{{date.maybe}}</span>
+                                         <i class="icon-question"></i> <span>:&nbsp{{date.maybe}}</span>
                                     </div>
                                     <div>
-                                        <i class="fa-solid fa-square-xmark"></i> <span>:&nbsp{{date.no}}</span>
+                                        <i class="icon-close"></i><span>:&nbsp{{date.no}}</span>
                                     </div>
                             </div>
                         </td>
