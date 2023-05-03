@@ -17,7 +17,7 @@
                 <thead>
                     <tr>
                         <th>Title</th>
-                        <th>Beschreibung</th>
+                        <th class="desc">Beschreibung</th>
                         <th>Author</th>
                         <th>Author Email</th>
                         <th>Termine</th>
@@ -37,7 +37,7 @@
                     {% if umfrage.private == true %}
                         <tr>
                             <td>{{ umfrage.title }}</td>
-                            <td>{{ umfrage.description }}</td>
+                            <td class="desc">{{ umfrage.description }}</td>
                             <td>{{ umfrage.name }}</td>
                             <td>{{ umfrage.email }}</td>
                             <td>
@@ -63,8 +63,8 @@
                             {% else %}
                                 {% if app.user == umfrage.loggedInUser %}
                                     <a class="btn btn-success d-flex flex-wrap-reverse p-3 mb-1 justify-content-center" href="{{ path('app_umfrage', { 'hash': umfrage.urlHash })}}">Vote</a>
-                                    <a class="btn btn-warning" href="">edit</a>
-                                    <a class="btn btn-danger"  href="">delete</a>
+                                    <a class="btn btn-warning" href=""><i class="icon-pencil"></i></a>
+                                    <a class="btn btn-danger"  href=""><i class="icon-trash-o"></i></a>
                                 {% else %}
                                     <a class="btn btn-success d-flex flex-wrap-reverse p-3 mb-1 justify-content-center" href="{{ path('app_umfrage', { 'hash': umfrage.urlHash })}}">Vote</a>
                                 {% endif %}
@@ -87,7 +87,7 @@
                 <thead>
                     <tr>
                         <th>Title</th>
-                        <th>Beschreibung</th>
+                        <th class="desc">Beschreibung</th>
                         <th>Author</th>
                         <th>Author Email</th>
                         <th>Termine</th>
@@ -101,7 +101,7 @@
                 {% if umfrage.private != true %}
                     <tr>
                         <td>{{ umfrage.title }}</td>
-                        <td>{{ umfrage.description }}</td>
+                        <td class="desc">{{ umfrage.description }}</td>
                         <td>{{ umfrage.name }}</td>
                         <td>{{ umfrage.email }}</td>
                         <td>
@@ -126,9 +126,9 @@
                             <a class="btn btn-success d-flex flex-wrap-reverse p-3 mb-1 justify-content-center" href="{{ path('app_umfrage', { 'hash': umfrage.urlHash })}}">Vote</a>
                         {% else %}
                             {% if app.user == umfrage.loggedInUser %}
-                                <a class="btn btn-success d-flex flex-wrap-reverse p-3 mb-1 justify-content-center" href="{{ path('app_umfrage', { 'hash': umfrage.urlHash })}}">Vote</a>
-                                <a class="btn btn-warning" href="">edit</a>
-                                <a class="btn btn-danger"  href="">delete</a>
+                                <a class="btn btn-success d-flex p-3 mb-1 justify-content-center" href="{{ path('app_umfrage', { 'hash': umfrage.urlHash })}}">Vote</a>
+                                <a class="btn btn-warning" href=""><i class="icon-pencil"></i></a>
+                                    <a class="btn btn-danger"  href=""><i class="icon-trash-o"></i></a>
                             {% else %}
                                 <a class="btn btn-success d-flex flex-wrap-reverse p-3 mb-1 justify-content-center" href="{{ path('app_umfrage', { 'hash': umfrage.urlHash })}}">Vote</a>
                             {% endif %}
