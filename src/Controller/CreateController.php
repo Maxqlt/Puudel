@@ -53,7 +53,7 @@ class CreateController extends AbstractController
             foreach ($errors as $error) {
                 $this->addFlash('error', $error->getMessage());
             }
-            return $this->redirectToRoute('Home');
+            return $this->redirectToRoute('app_home');
         }
 
         return $this->render('create/index.html.twig', [

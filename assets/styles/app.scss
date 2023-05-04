@@ -84,6 +84,10 @@ input{
     border-radius: 5px;
                
 }
+.alert{
+    position: fixed;
+    top: 100px;
+}
 body {
     background-color: var(--backround-color);
     color: #e3e3e3;
@@ -147,6 +151,7 @@ body {
                     display: none;
                 }
                 .btn{ //remove white border on clicking
+                    background-color: rgb(94 94 94 / 80%);
                     &:active{
                         border: 1px solid var(--backround-color);
                     }

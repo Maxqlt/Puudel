@@ -7,7 +7,8 @@ function pad(number) {
 
 function setTimezoneCookie() {
     // Check if the user has given consent for the "timezone" cookie
-    if (hasConsentForCookie('timezone')) {
+    // NYI
+    if (true) {
         var timezoneOffset = new Date().getTimezoneOffset() / -60;
         var timezoneOffsetString = pad(Math.abs(timezoneOffset)) + ':00';
         if (timezoneOffset >= 0) {
