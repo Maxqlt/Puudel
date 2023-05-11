@@ -1,0 +1,6 @@
+/node_modules
+# use existing DB
+# /var/data.db 
+/vendor
+/migrations
+Dockerfile
