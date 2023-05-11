@@ -35,14 +35,14 @@ RUN composer install
 RUN npm install
 
 # create fresh DB // 
-# RUN mkdir /var/www/migrations                    
-# RUN php bin/console make:migration
-# RUN php bin/console doctrine:migrations:migrate --no-interaction
-# RUN chmod 666  /var/www/var/data.db
+
 
 
 
 
 EXPOSE 8000
 
-CMD ["symfony", "server:start"]
+ENTRYPOINT ["/bin/bash", "--","/var/www/start.sh"]
+
+
+# CMD ["symfony", "server:start -d"]

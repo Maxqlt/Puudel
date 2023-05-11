@@ -1,6 +1,5 @@
 /node_modules
-# use existing DB
-# /var/data.db 
+/var/db/
 /vendor
 /migrations
 Dockerfile

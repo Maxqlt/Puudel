@@ -11,7 +11,11 @@ class IconController extends AbstractController
     #[Route('/icon', name: 'app_icon')]
     public function index(): Response
     {
-        $css = file_get_contents('build\icomoon\style.scss');
+        try {
+            $css = file_get_contents('build\icomoon\style.scss');
+        } catch (\Throwable $th) {
+            $css = file_get_contents('/var/www/public/build/icomoon/style.css');
+        }
         $matches = [];
         preg_match_all('/\.icon[a-zA-Z0-9_-]+/', $css, $matches); // Match class selectors
         $classes = array_map(function($match) {

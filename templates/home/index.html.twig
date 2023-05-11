@@ -5,13 +5,14 @@
 {% block body %}
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12">            
+        <div class="col-12">  
+        {{testvar2}}          
             {% if app.user is null %}
                 <h1>Willkommen, Gast</h1> 
             {% else %}
                 <h1>Willkommen, {{ app.user.email }}</h1>
             {% endif %}
-        <div>{{dump(testvar2)}}</div>
+        
             <h2>Deine Umfragen:</h2>
             
             <table class="table">
