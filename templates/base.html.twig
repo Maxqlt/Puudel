@@ -49,50 +49,57 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
              {{ encore_entry_script_tags('timezone') }}
+             {{ encore_entry_script_tags('ants') }}
         {% endblock %}
     </head>
     <body>
-        {% block header %}
-        <header>
-            <nav>
-                <div class="left-nav">
-                    <h1>Puudel Project 🐩</h1>
-                    <a href="{{ path('app_home')}}"><i class="icon-home"></i></a>
-                    <a href="{{ path('app_about')}}">About</a>
-                    <a href="{{ path('app_icon')}}">icon-list</a>
+        <div id="root">
+            {% block header %}
+            <header>
+                <nav>
+                    <div class="left-nav">
+                        <h1>Puudel Project 🐩</h1>
+                        <a href="{{ path('app_home')}}"><i class="icon-home"></i></a>
+                        <a href="{{ path('app_about')}}">About</a>
+                        <a href="{{ path('app_icon')}}">icon-list</a>
+                        <a href="{{ path('app_anty')}}">Ants</a>
 
-                    <a href="#">Contact</a>
-                </div>
-                <div class="right-nav">
-                    <a href="#">
-                        <i class="icon-earth"></i>
-                    </a>
-                    {% if app.user %}
-                    <a href="{{ path('app_logout')}}">Logout</a>
-                    {% else %}
-                    <a href="{{ path('app_register')}}">Register</a>
-                    <a href="{{ path('app_login')}}">Login</a>
-                    {% endif %}
+                        <a href="#">Contact</a>
+                    </div>
+                    <div class="right-nav">
+                        <a href="#">
+                            <i class="icon-earth"></i>
+                        </a>
+                        {% if app.user %}
+                        <a href="{{ path('app_logout')}}">Logout</a>
+                        {% else %}
+                        <a href="{{ path('app_register')}}">Register</a>
+                        <a href="{{ path('app_login')}}">Login</a>
+                        {% endif %}
 
-                </div>
-            </nav>
-        </header>
-        {% endblock %}
-        
-        {% if app.session.flashbag.has('error') %}
-            {% set lastError = app.session.flashbag.get('error')|last %}
-            <div class="alert alert-danger">{{ lastError }}</div>
-        {% endif %}
-
-        {% block body %}
-        {% endblock %}
-        
-        {% block footer %}
-        <footer>
-	        <div class="container">
-                <p><a href="#">FAQ</a> | <a href="#">Donation</a> | &copy; 2023 My Test Project. All rights reserved.</p>
+                    </div>
+                </nav>
+            </header>
+            {% endblock %}
+            
+            {% if app.session.flashbag.has('error') %}
+                {% set lastError = app.session.flashbag.get('error')|last %}
+                <div class="alert alert-danger">{{ lastError }}</div>
+            {% endif %}
+            <div>
+                FONT - SIZE 2
             </div>
-        </footer>
-        {% endblock %}
+            {% block body %}
+             
+            {% endblock %}
+            
+            {% block footer %}
+            <footer>
+                <div class="container">
+                    <p><a href="#">FAQ</a> | <a href="#">Donation</a> | &copy; 2023 My Test Project. All rights reserved.</p>
+                </div>
+            </footer>
+            {% endblock %}
+        </div>
     </body>
 </html>

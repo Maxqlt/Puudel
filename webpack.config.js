@@ -21,6 +21,7 @@ Encore
     */
    .addEntry('app', './assets/app.js')
    .addEntry('timezone', './assets/js/timezone.js')
+   .addEntry('ants', './assets/js/ants_canvas.js')
    .addEntry('/cookieconsent/cookieconsent', './node_modules/cookieconsent/build/cookieconsent.min.js')
     
    .addStyleEntry('/cookieconsent/cookieconsent-css', './node_modules/cookieconsent/build/cookieconsent.min.css')
